@@ -1,0 +1,12 @@
+## webapp
+app_dir: /webapps
+app_name: teachbase
+app_server_name: _
+app_db_user_pass: md53548dd4d99be6cf8a98894d919f84c29
+app_db_user: teachbase
+
+## stolen from https://github.com/jgrowl/ansible-playbook-ruby-from-src
+ruby_version: 2.1
+ruby_name: ruby-2.1.0
+ruby_url: http://cache.ruby-lang.org/pub/ruby/$ruby_version/$ruby_name.tar.gz
+ruby_tmp_path: /usr/local/src/$ruby_name
