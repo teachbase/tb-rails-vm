@@ -8,13 +8,11 @@
     - ./configure
     - make
     - sudo make install
-- name: Install bundler and rake
-  gem: name={{ item.name }} state=present
+    
+- name: Install bundler
+  command: sudo gem install {{ item.name }}
   with_items:
    - { name: 'bundler'}
-   - { name: 'rake'}
-- name: Install rails
-  gem: name=rails version=4.0.0 state=present
 
 - name: Update ruby permissions  
   command: "sudo chown -R vagrant /usr/local/lib/ruby"
