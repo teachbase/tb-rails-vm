@@ -1,0 +1,2 @@
+- name: Install ImageMagick
+  apt: pkg=imagemagick state=installed
