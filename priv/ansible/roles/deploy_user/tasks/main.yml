@@ -1,0 +1,5 @@
+- name: Add deploy user
+  user: name={{deploy_user}} group=primary-group groups="sudo"
+
+- name: Add RSA key to the remote host
+  authorized_key: user={{ deploy_user }} key={{ lookup('file', deploy_user_key)}}

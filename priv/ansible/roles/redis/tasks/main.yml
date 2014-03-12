@@ -1,2 +1,1 @@
-- name: Install Redis
-  apt: pkg=redis-server state=latest
+- include: setup.yml tags=redis

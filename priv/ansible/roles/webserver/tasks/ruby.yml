@@ -15,4 +15,4 @@
    - { name: 'bundler'}
 
 - name: Update ruby permissions  
-  command: "sudo chown -R vagrant /usr/local/lib/ruby"
+  command: "sudo chown -R {{deploy_user}} /usr/local/lib/ruby"

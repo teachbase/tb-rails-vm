@@ -1,12 +1,12 @@
 ---
-- hosts: development
+- name: Development setup
+  hosts: development
   user: vagrant
   sudo: true
   vars_files:
     - group_vars/development.yml
-    
   roles:
     - webserver
-    - database
+    - postgres
     - redis
     - nodejs
