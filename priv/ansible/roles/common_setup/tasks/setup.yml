@@ -6,7 +6,7 @@
   sudo: yes
   template: src=locale dest=/etc/default/locale owner=root group=root mode=644
 
-- name: install ruby dependencies 
+- name: install dependencies 
   action: apt pkg=$item state=installed
   with_items:
     - build-essential

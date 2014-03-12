@@ -6,7 +6,9 @@
   vars_files:
     - group_vars/development.yml
   roles:
-    - webserver
+    - common_setup
+    - ruby
+    - nginx
     - postgres
     - redis
     - nodejs

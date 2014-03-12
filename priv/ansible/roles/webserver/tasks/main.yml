@@ -1,4 +1,0 @@
-- include: setup.yml tags=setup
-- include: ruby.yml tags=ruby
-- include: nginx.yml tags=nginx
-- include: imagemagick.yml tags=convert
