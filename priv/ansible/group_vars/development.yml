@@ -1,11 +1,14 @@
 ## webapp
 app_dir: /webapps
 app_name: teachbase
+app_path: "${app_dir}/${app_name}"
 app_server_name: _
+app_db_host: localhost
 app_db_user_pass: md53548dd4d99be6cf8a98894d919f84c29
 app_db_user: teachbase
 
-db_ram: 1024
+db_ram_shared: 512
+db_ram_cache: 256
 
 ## stolen from https://github.com/jgrowl/ansible-playbook-ruby-from-src
 ruby_version: 2.1

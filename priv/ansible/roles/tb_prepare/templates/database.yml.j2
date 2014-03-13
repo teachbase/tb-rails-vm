@@ -1,0 +1,22 @@
+development:
+  adapter: postgresql
+  host: localhost
+  database: {{ app_name }}_dev
+  username: {{ app_db_user }}
+  password: {{ app_name }}
+
+test:
+  adapter: postgresql
+  host: localhost
+  database: {{ app_name }}_test
+  username: {{ app_db_user }}
+  password: {{ app_name }}
+
+production:
+  adapter: postgresql
+  host: {{ app_db_host }}
+  database: {{ app_name }}
+  username: {{ app_db_user }}
+  password: {{ app_db_user_pass }} 
+  encoding: unicode
+  pool: 10

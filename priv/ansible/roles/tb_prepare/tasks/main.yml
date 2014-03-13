@@ -1,5 +1,14 @@
 - name: Make project dir
-  command: mkdir {{app_dir}} && mkdir {{app_dir}}/{{app_name}}
+  command: mkdir -p {{app_dir}}/{{app_name}}
+
+- name: Make sockets dir
+  command: mkdir -p {{app_path}}/shared/tmp/sockets
+
+- name: Make config dir
+  command: mkdir -p {{app_path}}/shared/config
+
+- name: Copy database.yml
+  template: src=database.yml.j2 dest={{app_path}}/shared/config/database.yml
 
 - name: Setup ownership for project dir
   command: chown -R {{deploy_user}} {{app_dir}}/{{app_name}}

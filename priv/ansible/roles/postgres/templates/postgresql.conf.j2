@@ -106,7 +106,7 @@ ssl = false				# (change requires restart)
 
 # - Memory -
 
-shared_buffers = {{ db_ram / 2 }}MB			# min 128kB
+shared_buffers = {{ db_ram_shared }}MB			# min 128kB
 					# (change requires restart)
 temp_buffers = 8MB			# min 800kB
 #max_prepared_transactions = 0		# zero disables the feature
@@ -245,7 +245,7 @@ checkpoint_completion_target = 0.5	# checkpoint target duration, 0.0 - 1.0
 #cpu_tuple_cost = 0.01			# same scale as above
 #cpu_index_tuple_cost = 0.005		# same scale as above
 #cpu_operator_cost = 0.0025		# same scale as above
-effective_cache_size = {{ db_ram / 2}}
+effective_cache_size = {{ db_ram_cache }}MB
 
 # - Genetic Query Optimizer -
 

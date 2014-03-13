@@ -1,5 +1,5 @@
 upstream {{ app_name }} {
-  server unix:///tmp/puma_{{ app_name }}.sock;
+  server unix:///{{ app_path }}/shared/tmp/sockets/puma.sock;
 }
 
 server {
@@ -8,7 +8,7 @@ server {
 
   gzip_types text/plain text/html text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;                                                                      
   server_name {{ app_server_name }};
-  root {{ app_dir }}/{{ app_name }}/public;
+  root {{ app_path }}/current/public;
 
   location / {
     proxy_pass http://{{ app_name }}; # match the name of upstream directive which is defined above
