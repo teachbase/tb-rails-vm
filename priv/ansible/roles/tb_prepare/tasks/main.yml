@@ -16,4 +16,6 @@
 - name: Setup rights for project dir
   command: chmod -R g+w {{app_dir}}/{{app_name}}
 
-- include: imagemagick.yml tags=setup
+- include: imagemagick.yml tags=imagick
+
+- include: curb_deps.yml tags=curb

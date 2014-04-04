@@ -22,4 +22,9 @@ Vagrant.configure("2") do |config|
     group: "www-data",
     mount_options: ["dmode=775,fmode=664"]
 
+  config.vm.synced_folder "../sorcery", "/webapps/sorcery", create: true, id: "vagrant-root",
+    owner: "vagrant",
+    group: "www-data",
+    mount_options: ["dmode=775,fmode=664"]
+
 end
