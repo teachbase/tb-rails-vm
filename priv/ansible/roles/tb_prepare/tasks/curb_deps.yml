@@ -1,0 +1,6 @@
+- name: install Curb dependencies 
+  action: apt pkg={{item}} state=installed
+  with_items:
+    - libcurl3 
+    - libcurl3-gnutls 
+    - libcurl4-openssl-dev
