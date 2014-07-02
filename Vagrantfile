@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "priv/ansible/teachbase_dev.yml"
     ansible.inventory_path = "priv/ansible/dev_hosts"
     ansible.verbose = 'v'
+    ansible.tags = 'pg_setup'
   end
 
   config.vm.network "forwarded_port", guest: 3000, host: 3001

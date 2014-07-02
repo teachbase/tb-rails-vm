@@ -1,2 +1,3 @@
 - include: postgresql.yml tags=postgres
+- include: setup_db.yml tags=pg_setup
 - include: run.yml tags=run_db

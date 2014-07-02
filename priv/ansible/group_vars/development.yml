@@ -7,6 +7,10 @@ app_db_host: localhost
 app_db_user_pass: md53548dd4d99be6cf8a98894d919f84c29
 app_db_user: teachbase
 
+pg_dbs: 
+  - teachbase_test 
+  - teachbase_dev
+
 db_ram_shared: 512
 db_ram_cache: 256
 
