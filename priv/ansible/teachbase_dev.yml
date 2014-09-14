@@ -12,3 +12,5 @@
     - postgres
     - redis
     - nodejs
+    - influxdb
+    - tb_prepare

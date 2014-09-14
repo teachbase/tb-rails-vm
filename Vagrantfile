@@ -11,7 +11,6 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "priv/ansible/teachbase_dev.yml"
     ansible.inventory_path = "priv/ansible/dev_hosts"
     ansible.verbose = 'v'
-    ansible.tags = 'pg_setup'
   end
 
   config.vm.network "forwarded_port", guest: 3000, host: 3001
@@ -19,6 +18,11 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder ".", "/vagrant", :disabled => true
   config.vm.synced_folder "src/", "/webapps/teachbase", create: true, id: "vagrant-root",
+    owner: "vagrant",
+    group: "www-data",
+    mount_options: ["dmode=775,fmode=664"]
+  config.vm.synced_folder "../pieces/pieces-rails/", "/webapps/teachbase/pieces-rails", create: true,
+    id: "vagrant-root",
     owner: "vagrant",
     group: "www-data",
     mount_options: ["dmode=775,fmode=664"]

@@ -31,6 +31,13 @@ node_path: "/usr/local"
 
 redis_version: "2.6.16"
 
+#influx
+influxdb:
+  version: latest
+  seed_servers: [ ]
+  replication_factor: 1
+
+
 # deploy params
 deploy_user: vagrant
 deploy_user_key: "~/.ssh/devtb_rsa.pub"
