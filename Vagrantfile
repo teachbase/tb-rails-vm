@@ -20,6 +20,11 @@ Vagrant.configure("2") do |config|
     owner: "vagrant",
     group: "www-data",
     mount_options: ["dmode=775,fmode=664"]
+  config.vm.synced_folder "../pieces/pieces-rails/", "/webapps/teachbase/pieces-rails", create: true,
+    id: "vagrant-root",
+    owner: "vagrant",
+    group: "www-data",
+    mount_options: ["dmode=775,fmode=664"]
 
   config.vm.synced_folder "../pieces/pieces-rails", "/webapps/teachbase/pieces-rails", create: true, id: "vagrant-root",
     owner: "vagrant",
