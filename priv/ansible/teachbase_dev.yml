@@ -12,3 +12,4 @@
     - postgres
     - redis
     - nodejs
+    - influxdb

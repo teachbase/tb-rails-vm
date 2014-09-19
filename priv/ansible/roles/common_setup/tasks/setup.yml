@@ -29,3 +29,4 @@
     - curl
     - nfs-common
     - vim
+    - xdg-utils
