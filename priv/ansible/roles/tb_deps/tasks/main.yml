@@ -1,0 +1,2 @@
+- include: imagemagick.yml tags=imagick
+- include: curb_deps.yml tags=curb

@@ -8,9 +8,8 @@
   roles:
     - common_setup
     - ruby
-    - nginx
     - postgres
     - redis
     - nodejs
     - influxdb
-    - tb_prepare
+    - tb_deps
