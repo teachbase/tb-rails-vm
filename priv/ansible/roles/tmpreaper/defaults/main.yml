@@ -1,0 +1,5 @@
+tmpreaper_time: '7d'
+tmpreaper_dirs: '/tmp/.'
+tmpreaper_delay: '256'
+tmpreaper_protect: ''
+tmpreaper_options: ''

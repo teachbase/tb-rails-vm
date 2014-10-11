@@ -6,8 +6,12 @@
   sudo: yes
   template: src=locale dest=/etc/default/locale owner=root group=root mode=644
 
+- name: ensure hosts contain hostname for localhost
+  sudo: yes
+  lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1' line='127.0.0.1 localhost {{ ansible_hostname }}'
+
 - name: install dependencies 
-  action: apt pkg=$item state=installed
+  action: apt pkg={{ item }} state=installed
   with_items:
     - build-essential
     - automake
