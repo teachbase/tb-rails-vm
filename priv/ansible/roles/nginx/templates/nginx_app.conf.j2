@@ -11,7 +11,7 @@ server {
   root {{ app_path }}/current/public;
 
   location / {
-    client_max_size {{ nginx_max_size }};
+    client_max_body_size {{ nginx_max_size }};
     proxy_read_timeout {{ nginx_read_timeout }};
     proxy_pass http://{{ app_name }}; # match the name of upstream directive which is defined above
     proxy_set_header Host $host;
