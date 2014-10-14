@@ -6,11 +6,12 @@
   vars_files:
     - group_vars/development.yml
   roles:
-    # - common_setup
-    # - ruby
-    # - postgres
-    # - redis
-    # - nodejs
-    # - influxdb
+    - common_setup
+    - ruby
+    - postgres
+    - redis
+    - nginx
+    - nodejs
+    - influxdb
     - phantomjs
-    # - tb_deps
+    - tb_deps

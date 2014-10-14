@@ -1,23 +1,19 @@
-upstream {{ app_name }} {
-  server unix:///{{ app_path }}/shared/tmp/sockets/puma.sock;
-}
-
 server {
   gzip on;
   listen 80;
 
   gzip_types text/plain text/html text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;                                                                      
   server_name {{ app_server_name }};
-  root {{ app_path }}/current/public;
+  root {{ app_path }}/public;
 
   location / {
     client_max_body_size {{ nginx_max_size }};
     proxy_read_timeout {{ nginx_read_timeout }};
-    proxy_pass http://{{ app_name }}; # match the name of upstream directive which is defined above
+    proxy_pass http://0.0.0.0:3000;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   }  
-
+  
   location /cors/ {
     rewrite    /cors/(.*) /$1 break;
 
@@ -30,18 +26,12 @@ server {
     proxy_pass http://{{ nginx_cors }};
   }
 
-  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
-    expires 1y;
-    log_not_found off;
-  }
-  
-  location ~ ^/(assets|images|javascripts|libs|stylesheets|swfs|system)/ {
+  location ~ ^/(libs|system)/ {
     gzip_static on;
     expires     max;
     add_header  Cache-Control public;
     add_header  Last-Modified "";
     add_header  ETag "";
-
     break;
   }  
 }

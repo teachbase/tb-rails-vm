@@ -43,6 +43,8 @@ deploy_user_key: "~/.ssh/devtb_rsa.pub"
 # nginx params
 nginx_max_size: 512m
 nginx_read_timeout: 1200
+nginx_conf: nginx_dev
+nginx_cors: cf2.teachbase.ru
 
 
 # phantom

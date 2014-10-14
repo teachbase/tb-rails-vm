@@ -11,7 +11,7 @@
   command: rm -rf /etc/nginx/sites-enabled/{{app_name}}
 
 - name: Configure nginx for the app
-  template: src=nginx_app.conf.j2 dest=/etc/nginx/sites-available/{{app_name}} group=www-data owner=www-data force=yes
+  template: src={{nginx_conf}}.conf.j2 dest=/etc/nginx/sites-available/{{app_name}} group=www-data owner=www-data force=yes
 
 - name: Enable the app
   command: ln -s /etc/nginx/sites-available/{{app_name}} /etc/nginx/sites-enabled/{{app_name}}
