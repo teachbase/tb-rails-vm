@@ -7,13 +7,13 @@
     - group_vars/production.yml
   gather_facts: True
   roles:
-    - common_setup
-    - deploy_user
-    - ruby
-    - nginx
-    - redis
-    - nodejs
-    - postgres
-    - tmpreaper
-    - tb_deps
-    - tb_prepare
+    - { role: common_setup, tags: ['initial'] }
+    - { role: deploy_user, tags: ['user'] }
+    - { role: ruby, tags: ['ruby'] }
+    - { role: postgres, tags: ['postgres'] }
+    - { role: redis, tags: ['redis'] }
+    - { role: nodejs, tags: ['nodejs'] }
+    - { role: nginx, tags: ['nginx'] }
+    - { role: tmpreaper, tags: ['tb_deps'] }
+    - { role: tb_deps, tags: ['tb_deps'] }
+    - { role: tb_prepare, tags: ['tb_prepare'] }

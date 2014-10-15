@@ -18,6 +18,16 @@ server {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   }  
 
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+    root {{ app_path }}/current/public;
+  }
+
+  error_page 400 404 /404.html;
+  location = /404.html {
+    root {{ app_path }}/current/public;
+  }
+
   location /cors/ {
     rewrite    /cors/(.*) /$1 break;
 
