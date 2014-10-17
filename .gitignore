@@ -6,4 +6,4 @@ src/
 # production files
 
 priv/ansible/group_vars/production.yml
-priv/ansible/aws_hosts
+priv/ansible/group_vars/selectel.yml

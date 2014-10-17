@@ -1,0 +1,19 @@
+---
+- name: Selectel production
+  hosts: selectel-production
+  sudo: yes 
+  remote_user: root
+  vars_files:
+    - group_vars/selectel.yml
+  gather_facts: True
+  roles:
+    - { role: common_setup, tags: ['initial'] }
+    - { role: deploy_user, tags: ['user'] }
+    - { role: ruby, tags: ['ruby'] }
+    - { role: postgres, tags: ['postgres'] }
+    - { role: redis, tags: ['redis'] }
+    - { role: nodejs, tags: ['nodejs'] }
+    - { role: nginx, tags: ['nginx'] }
+    - { role: tmpreaper, tags: ['tb_deps'] }
+    - { role: tb_deps, tags: ['tb_deps'] }
+    - { role: tb_prepare, tags: ['tb_prepare'] }
