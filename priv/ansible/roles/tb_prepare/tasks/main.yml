@@ -7,8 +7,12 @@
 - name: Make config dir
   command: mkdir -p {{app_path}}/shared/config
 
-- name: Copy database.yml
-  template: src=database.yml.j2 dest={{app_path}}/shared/config/database.yml
+- name: Copy config *.yml
+  template: src={{ item}}.yml.j2 dest={{app_path}}/shared/config/{{item}}.yml
+  with_items:
+    - database
+    - erly_meetings
+    - secrets
 
 - name: Setup ownership for project dir
   command: chown -R {{deploy_user}} {{app_dir}}/{{app_name}}

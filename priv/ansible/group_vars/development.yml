@@ -1,7 +1,7 @@
 ## webapp
 app_dir: /webapps
 app_name: teachbase
-app_path: "${app_dir}/${app_name}"
+app_path: "{{ app_dir }}/{{ app_name }}"
 app_server_name: _
 app_db_host: localhost
 app_db_user_pass: md53548dd4d99be6cf8a98894d919f84c29
@@ -17,14 +17,14 @@ db_ram_cache: 256
 ## stolen from https://github.com/jgrowl/ansible-playbook-ruby-from-src
 ruby_version: 2.1
 ruby_name: ruby-2.1.0
-ruby_url: http://cache.ruby-lang.org/pub/ruby/$ruby_version/$ruby_name.tar.gz
-ruby_tmp_path: /usr/local/src/$ruby_name
+ruby_url: http://cache.ruby-lang.org/pub/ruby/{{ ruby_version}}/{{ ruby_name}}.tar.gz
+ruby_tmp_path: /usr/local/src/{{ ruby_name }}
 
 # nodejs params
 
 node_version: "0.10.26"
-node_prefix: "node-v${node_version}"
-node_tarball: "${node_prefix}.tar.gz"
+node_prefix: "node-v{{ node_version }}"
+node_tarball: "{{ node_prefix}}.tar.gz"
 node_path: "/usr/local"
 
 # redis
@@ -43,3 +43,10 @@ deploy_user_key: "~/.ssh/devtb_rsa.pub"
 # nginx params
 nginx_max_size: 512m
 nginx_read_timeout: 1200
+nginx_conf: nginx_dev
+nginx_cors: cf2.teachbase.ru
+
+
+# phantom
+phantomjs: 'phantomjs-1.9.7-linux-x86_64'
+phantomjs_url: 'https://bitbucket.org/ariya/phantomjs/downloads/{{ phantomjs }}.tar.bz2'

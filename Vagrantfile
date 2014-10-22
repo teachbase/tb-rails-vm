@@ -9,10 +9,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "priv/ansible/teachbase_dev.yml"
     ansible.inventory_path = "priv/ansible/dev_hosts"
+    ansible.tags = ENV["TAGS"]
+    ansible.skip_tags = ENV["SKIP_TAGS"]
     ansible.verbose = 'v'
   end
 
+  config.vm.network :forwarded_port, host: 2201, guest: 22 
   config.vm.network "forwarded_port", guest: 3000, host: 3001
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
   config.vm.network "private_network", ip: "192.168.50.111"
 
   config.vm.synced_folder ".", "/vagrant", :disabled => true
@@ -20,15 +25,4 @@ Vagrant.configure("2") do |config|
     owner: "vagrant",
     group: "www-data",
     mount_options: ["dmode=775,fmode=664"]
-  config.vm.synced_folder "../pieces/pieces-rails/", "/webapps/teachbase/pieces-rails", create: true,
-    id: "vagrant-root",
-    owner: "vagrant",
-    group: "www-data",
-    mount_options: ["dmode=775,fmode=664"]
-
-  config.vm.synced_folder "../pieces/pieces-rails", "/webapps/teachbase/pieces-rails", create: true, id: "vagrant-root",
-    owner: "vagrant",
-    group: "www-data",
-    mount_options: ["dmode=775,fmode=664"]
-
 end

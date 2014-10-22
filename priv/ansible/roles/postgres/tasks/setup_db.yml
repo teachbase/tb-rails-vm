@@ -10,9 +10,9 @@
     lc_ctype: 'en_US.UTF-8'
     template: 'template0'
     state: present
-  with_items: $pg_dbs
+  with_items: pg_dbs
 
 - name: Install hstore ext
   sudo_user: postgres
   shell: psql {{ item }} -c "CREATE EXTENSION IF NOT EXISTS hstore;"
-  with_items: $pg_dbs
+  with_items: pg_dbs

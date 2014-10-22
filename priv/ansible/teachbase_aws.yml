@@ -1,17 +1,19 @@
 ---
-- name: Development setup
-  hosts: development
-  user: vagrant
-  sudo: true
+- name: EC2 production
+  hosts: aws-production
+  sudo: yes 
+  remote_user: ubuntu
   vars_files:
-    - group_vars/development.yml
+    - group_vars/production.yml
+  gather_facts: True
   roles:
     - { role: common_setup, tags: ['initial'] }
+    - { role: deploy_user, tags: ['user'] }
     - { role: ruby, tags: ['ruby'] }
     - { role: postgres, tags: ['postgres'] }
     - { role: redis, tags: ['redis'] }
     - { role: nodejs, tags: ['nodejs'] }
-    - { role: influxdb, tags: ['influxdb'] }
     - { role: nginx, tags: ['nginx'] }
-    - { role: phantomjs, tags: ['tb_deps'] }
+    - { role: tmpreaper, tags: ['tb_deps'] }
     - { role: tb_deps, tags: ['tb_deps'] }
+    - { role: tb_prepare, tags: ['tb_prepare'] }

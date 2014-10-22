@@ -1,6 +1,6 @@
 - name: Copy valid pg_hba.conf
   template: src=pg_hba.conf.j2 dest=/etc/postgresql/9.3/main/pg_hba.conf
-  
+
 - name: Copy valid postgresql.conf
   template: src=postgresql.conf.j2 dest=/etc/postgresql/9.3/main/postgresql.conf
 
@@ -8,6 +8,13 @@
   command: service postgresql restart
 
 - name: ensure database is created
-  postgresql_user: name={{app_db_user}} password={{app_db_user_pass}} role_attr_flags=CREATEDB,NOSUPERUSER
+  postgresql_user: name={{app_db_user}} password={{app_db_user_pass}} encrypted=no role_attr_flags=CREATEDB,NOSUPERUSER
   sudo: yes
   sudo_user: postgres
+  register: db_created
+
+- name: Restart postgres
+  debug: msg="restart postgres"
+  when: db_created.changed
+  notify:
+    - restart_postgres

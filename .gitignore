@@ -7,5 +7,3 @@ src/
 
 priv/ansible/group_vars/production.yml
 priv/ansible/group_vars/selectel.yml
-priv/ansible/teachbase_aws.yml
-priv/ansible/aws_hosts
