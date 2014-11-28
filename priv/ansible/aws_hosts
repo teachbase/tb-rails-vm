@@ -1,3 +1,3 @@
 [aws-production]
-dev2.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
+dev2.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem sendgrid=false
 go.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
