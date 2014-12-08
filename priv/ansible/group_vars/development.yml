@@ -38,6 +38,9 @@ influxdb:
   seed_servers: [ ]
   replication_factor: 1
 
+honeybadger_api_key: ''
+youtube_api_key: ''
+
 # deploy params
 deploy_user: vagrant
 deploy_user_key: "~/.ssh/devtb_rsa.pub"
