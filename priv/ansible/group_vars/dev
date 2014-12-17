@@ -1,0 +1,7 @@
+pg_dbs: 
+  - teachbase_test 
+  - teachbase_dev
+
+# deploy params
+deploy_user: vagrant
+deploy_user_key: "~/.ssh/devtb_rsa.pub"

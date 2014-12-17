@@ -7,10 +7,6 @@ app_db_host: localhost
 app_db_user_pass: md53548dd4d99be6cf8a98894d919f84c29
 app_db_user: teachbase
 
-pg_dbs: 
-  - teachbase_test 
-  - teachbase_dev
-
 db_ram_shared: 512
 db_ram_cache: 256
 
@@ -28,8 +24,10 @@ node_tarball: "{{ node_prefix}}.tar.gz"
 node_path: "/usr/local"
 
 # redis
-
 redis_version: "2.6.16"
+
+# tmpreaper
+tmpreaper_time: 1h
 
 latexmk_src: http://mirror.physik-pool.tu-berlin.de/tex-archive/support/latexmk/latexmk.pl
 
@@ -38,20 +36,18 @@ influxdb:
   seed_servers: [ ]
   replication_factor: 1
 
-honeybadger_api_key: ''
-youtube_api_key: ''
-
-# deploy params
-deploy_user: vagrant
-deploy_user_key: "~/.ssh/devtb_rsa.pub"
-
 # nginx params
 nginx_max_size: 512m
 nginx_read_timeout: 1200
 nginx_conf: nginx_dev
 nginx_cors: cf2.teachbase.ru
 
-
 # phantom
 phantomjs: 'phantomjs-1.9.7-linux-x86_64'
 phantomjs_url: 'https://bitbucket.org/ariya/phantomjs/downloads/{{ phantomjs }}.tar.bz2'
+
+honeybadger_api_key: ''
+youtube_api_key: ''
+dropbox_api_key: ''
+
+sendgrid: false

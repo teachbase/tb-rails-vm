@@ -1,10 +1,8 @@
 ---
 - name: Development setup
-  hosts: development
+  hosts: dev
   user: vagrant
   sudo: true
-  vars_files:
-    - group_vars/development.yml
   roles:
     - { role: common_setup, tags: ['initial'] }
     - { role: ruby, tags: ['ruby'] }

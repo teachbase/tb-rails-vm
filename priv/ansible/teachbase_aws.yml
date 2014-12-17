@@ -1,10 +1,10 @@
 ---
 - name: EC2 production
-  hosts: aws-production
+  hosts: 
+    - aws_dev
+    - aws_production
   sudo: yes 
   remote_user: ubuntu
-  vars_files:
-    - group_vars/production.yml
   gather_facts: True
   roles:
     - { role: common_setup, tags: ['initial'] }
