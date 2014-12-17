@@ -32,9 +32,10 @@ tmpreaper_time: 1h
 latexmk_src: http://mirror.physik-pool.tu-berlin.de/tex-archive/support/latexmk/latexmk.pl
 
 influxdb:
-  version: latest
-  seed_servers: [ ]
-  replication_factor: 1
+  version: 0.8.6
+  udp: "true"
+  udp_port: 9001
+  udp_db: teachbase_dev
 
 # nginx params
 nginx_max_size: 512m
