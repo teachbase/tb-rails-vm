@@ -5,3 +5,6 @@ pg_dbs:
 # deploy params
 deploy_user: vagrant
 deploy_user_key: "~/.ssh/devtb_rsa.pub"
+
+influxdb:
+  admin_pass: admin

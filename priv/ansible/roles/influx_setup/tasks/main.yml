@@ -33,4 +33,4 @@
 - name: InfluxDB | Check Users List
   command: curl "http://localhost:8086/db/{{ influx_setup.db_name }}/users?u={{ influxdb.admin_name }}&p={{ influxdb.admin_pass }}"
   register: db_users2
-  failed_when: db_users2.stdout.find(influx_setup.user_name) == -1
+  failed_when: influx_setup.user and (db_users2.stdout.find(influx_setup.user_name) == -1)
