@@ -5,4 +5,4 @@ dev2.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
 go.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
 
 [aws_influx]
-54.77.210.105 ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
+inf1.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem

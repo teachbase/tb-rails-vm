@@ -6,5 +6,6 @@ src/
 # production files
 
 priv/ansible/group_vars/aws_production
+priv/ansible/host_vars
 priv/ansible/group_vars/aws_dev
 priv/ansible/group_vars/selectel_production
