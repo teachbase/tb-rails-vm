@@ -1,0 +1,11 @@
+- name: InfluxDB | Install required packages
+  apt: pkg=python-httplib2 state=installed
+
+- name: InfluxDB | Copy DB options file
+  template: src="db_options.json.j2" dest="/tmp/db_options.json"
+
+- name: InfluxDB | Create DB
+  command: curl -X POST "http://localhost:8086/db?u=root&p=root" -d @/tmp/db_options.json
+  register: create_db
+
+- debug: msg={{ create_db.stdout }}

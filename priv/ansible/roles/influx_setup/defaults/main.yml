@@ -1,0 +1,4 @@
+influx_setup:
+  db_name: "influx"
+  spaces: []
+  queries: []

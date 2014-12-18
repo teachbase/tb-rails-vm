@@ -1,0 +1,5 @@
+{
+  "name": "{{ influx_setup.db_name }}",
+  "spaces": {{ influx_setup.spaces | to_json}},
+  "continuousQueries": {{ influx_setup.queries | to_json }}
+}
