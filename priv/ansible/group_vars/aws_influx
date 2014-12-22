@@ -1,3 +1,0 @@
-# deploy params
-deploy_user: deplo
-deploy_user_key: "/Users/palkan/.ssh/devtb_rsa.pub"

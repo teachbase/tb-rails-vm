@@ -31,26 +31,6 @@ tmpreaper_time: 1h
 
 latexmk_src: http://mirror.physik-pool.tu-berlin.de/tex-archive/support/latexmk/latexmk.pl
 
-influxdb:
-  version: 0.8.6
-  udp: "true"
-  udp_port: 9001
-  udp_db: teachbase_dev
-
-influx_setup:
-  user: false
-  db_name: teachbase_dev
-  spaces:
-    - {"name": "everything_30d", "retentionPolicy": "30d", "shardDuration": "1d", "regex": "/.*/", "replicationFactor": 1, "split": 1}
-    - {"name": "perf", "regex": "/collected_perf\\..*/", "retentionPolicy": "7d", "shardDuration": "10m", "replicationFactor": 1, "split": 1}
-    - {"name": "visits_by_day", "regex": "/collected_visits_by_day\\..*/", "retentionPolicy": "365d", "shardDuration": "1d", "replicationFactor": 1, "split": 1}
-    - {"name": "visits_by_month", "regex": "/collected_visits_by_month\\..*/", "retentionPolicy": "inf", "shardDuration": "30d", "replicationFactor": 1, "split": 1}
-  queries:
-    - 'select ip, page_id, browser, user_id, percentile(95, dom_time) as dom_time, percentile(95, load_time) as load_time, percentile(95, req_time) as req_time, percentile(95, connect_time) as connect_time, percentile(95, redirect_time) as redirect_time from perf_load_page group by time(10m) into collected_perf.load_page'
-    - 'select * from collected_perf.load_page into collected_perf.load_page.[page_id].[browser]'
-    - 'select ip, page_id, browser, user_id, percentile(95, req_time) as req_time from perf_load_ajax group by time(10m) into collected_perf.load_ajax'
-    - 'select * from collected_perf.load_ajax into collected_perf.load_ajax.[page_id].[browser]'
-
 # nginx params
 nginx_max_size: 512m
 nginx_read_timeout: 1200
