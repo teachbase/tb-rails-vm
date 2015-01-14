@@ -40,6 +40,14 @@ server {
     proxy_pass http://{{ nginx_cors }};
   }
 
+  location ~* \.appcache$ {
+    gzip_static on;
+    expires off;
+    add_header Content-Type text/cache-manifest;
+
+    break;
+  } 
+
   location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
     expires 1y;
     log_not_found off;
