@@ -1,8 +1,2 @@
-[aws_dev]
-dev2.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
-
 [aws_production]
 go.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
-
-[aws_influx]
-inf1.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
