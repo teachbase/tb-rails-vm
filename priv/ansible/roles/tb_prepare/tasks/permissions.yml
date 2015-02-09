@@ -1,0 +1,5 @@
+- name: Setup ownership for project dir
+  command: chown -R {{deploy_user}} {{app_dir}}/{{app_name}}
+
+- name: Setup rights for project dir
+  command: chmod -R g+w {{app_dir}}/{{app_name}}

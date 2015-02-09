@@ -1,0 +1,6 @@
+- name: Copy config *.yml
+  template: src={{ item}}.yml.j2 dest={{app_path}}/shared/config/{{item}}.yml
+  with_items:
+    - database
+    - erly_meetings
+    - secrets

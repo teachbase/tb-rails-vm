@@ -1,21 +1,3 @@
-- name: Make project dir
-  command: mkdir -p {{app_dir}}/{{app_name}}
-
-- name: Make sockets dir
-  command: mkdir -p {{app_path}}/shared/tmp/sockets
-
-- name: Make config dir
-  command: mkdir -p {{app_path}}/shared/config
-
-- name: Copy config *.yml
-  template: src={{ item}}.yml.j2 dest={{app_path}}/shared/config/{{item}}.yml
-  with_items:
-    - database
-    - erly_meetings
-    - secrets
-
-- name: Setup ownership for project dir
-  command: chown -R {{deploy_user}} {{app_dir}}/{{app_name}}
-
-- name: Setup rights for project dir
-  command: chmod -R g+w {{app_dir}}/{{app_name}}
+- include: appdir.yml tags=tb_prepare
+- include: configs.yml tags=tb_configs
+- include: permissions.yml tags=tb_prepare
