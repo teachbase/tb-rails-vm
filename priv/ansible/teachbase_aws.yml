@@ -17,4 +17,4 @@
     - { role: tmpreaper, tags: ['tb_deps'] }
     - { role: texlive, tags: ['latex'] }
     - { role: tb_deps, tags: ['tb_deps'] }
-    - { role: tb_prepare, tags: ['tb_configs'] }
+    - { role: tb_prepare, tags: ['tb_prepare'] }
