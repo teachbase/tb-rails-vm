@@ -46,3 +46,5 @@ youtube_api_key: ''
 dropbox_api_key: ''
 
 sendgrid: false
+
+skylight: false
