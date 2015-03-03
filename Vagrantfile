@@ -6,17 +6,17 @@ Vagrant.configure("2") do |config|
   config.vm.box       = "precise64"
   config.vm.box_url   = "http://files.vagrantup.com/precise64.box"
 
-  config.vm.provision "ansible" do |ansible|
-    if is_windows
-      # Share folder only under windows
-      config.vm.synced_folder "priv/ansible", "/ansible"
-      
-      # Provisioning configuration for shell script.
-      config.vm.provision "shell" do |sh|
-        sh.path = "priv/win.sh"
-        sh.args = "teachbase_dev.yml dev_hosts"
-      end
-    else
+  if is_windows
+    # Share folder only under windows
+    config.vm.synced_folder "priv/ansible", "/ansible"
+    
+    # Provisioning configuration for shell script.
+    config.vm.provision "shell" do |sh|
+      sh.path = "priv/win.sh"
+      sh.args = "teachbase_dev.yml dev_hosts"
+    end
+  else
+    config.vm.provision "ansible" do |ansible|
       ENV["ANSIBLE_CONFIG"] = "priv/ansible/ansible.cfg"
       ansible.playbook = "priv/ansible/teachbase_dev.yml"
       ansible.inventory_path = "priv/ansible/dev_hosts"
