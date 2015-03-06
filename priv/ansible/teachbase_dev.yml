@@ -10,6 +10,6 @@
     - { role: redis, tags: ['redis'] }
     - { role: nodejs, tags: ['nodejs'] }
     - { role: nginx, tags: ['nginx'] }
-    - { role: phantomjs, tags: ['tb_deps'] }
+    - { role: phantomjs, tags: ['phantomjs'] }
     - { role: texlive, tags: ['latex'] }
     - { role: tb_deps, tags: ['tb_deps'] }

@@ -1,5 +1,5 @@
 pg_dbs: 
-  - teachbase_test 
+  - teachbase_test
   - teachbase_dev
 
 # deploy params
