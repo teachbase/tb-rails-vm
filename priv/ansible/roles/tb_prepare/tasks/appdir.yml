@@ -1,0 +1,8 @@
+- name: Make project dir
+  command: mkdir -p {{app_dir}}/{{app_name}}
+
+- name: Make sockets dir
+  command: mkdir -p {{app_path}}/shared/tmp/sockets
+
+- name: Make config dir
+  command: mkdir -p {{app_path}}/shared/config

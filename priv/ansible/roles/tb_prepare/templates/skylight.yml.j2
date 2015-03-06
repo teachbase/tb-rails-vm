@@ -1,0 +1,9 @@
+{% if skylight %}
+
+---
+application: {{ skylight.app }}
+authentication: {{ skylight.auth }}
+daemon:
+  sockdir_path: {{ skylight.socket_path }}
+
+{% endif %}
