@@ -5,3 +5,6 @@
     - erly_meetings
     - secrets
     - skylight
+
+- name: Copy sidekiq_pusher
+  copy: src=sidekiq_pusher dest={{app_path}}/shared/bin/sidekiq_pusher owner={{ deploy_user }} group={{ deploy_user }} mode=0754
