@@ -5,3 +5,15 @@ pg_dbs:
 # deploy params
 deploy_user: vagrant
 deploy_user_key: "~/.ssh/devtb_rsa.pub"
+
+logstash_forwarder:
+  ssl_crt_file: "files/logstash-forwarder.crt"
+  ssl_key_file: "files/logstash-forwarder.key"
+  servers:
+    - "elk.teachbase.ru:8501"
+  files:
+    - paths:
+        - "{{ app_path }}/log/logstash_development.log"
+      fields:
+        type: 'rails'
+        format: 'json_event'

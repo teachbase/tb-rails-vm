@@ -1,0 +1,3 @@
+---
+- include: ssl.yml tags=logstash_forwarder_ssl
+- include: logstash_forwarder.yml tags=logstash_forwarder

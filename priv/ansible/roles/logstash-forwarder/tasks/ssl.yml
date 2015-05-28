@@ -1,0 +1,16 @@
+---
+- name: LF | Ensure ssl certs dir exists
+  file: dest={{ logstash_forwarder.ssl_crt_dir }} state=directory
+  sudo: yes
+
+- name: LF | Copy SSL cert
+  copy: src={{ logstash_forwarder.ssl_crt_file }} dest="{{ logstash_forwarder.ssl_crt_dir }}/logstash-forwarder.crt"
+  sudo: yes
+
+- name: LF | Ensure ssl keys dir exists
+  file: dest={{ logstash_forwarder.ssl_key_dir }} state=directory
+  sudo: yes
+
+- name: LF | Copy SSL cert
+  copy: src={{ logstash_forwarder.ssl_key_file }} dest="{{ logstash_forwarder.ssl_key_dir }}/logstash-forwarder.key"
+  sudo: yes

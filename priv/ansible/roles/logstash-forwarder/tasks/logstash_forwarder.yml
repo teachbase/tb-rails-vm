@@ -1,0 +1,22 @@
+---
+- name: LF | check package
+  command: dpkg -s logstash-forwarder
+  register: lf_check
+  failed_when: lf_check.rc > 1
+  changed_when: lf_check.rc == 1
+
+- name: LF | Download package
+  get_url: 
+    url="{{ logstash_forwarder.pkg_url }}"
+    dest="/tmp/logstash-forwarder.deb"
+  when: lf_check | changed
+
+- name: LF | Install package
+  apt: deb="/tmp/logstash-forwarder.deb"
+  sudo: yes
+  when: lf_check | changed
+
+- name: LF | Create config
+  template: src=logstash-forwarder.conf.j2 dest=/etc/logstash-forwarder.conf
+  sudo: yes
+  notify: Restart logstash-forwarder

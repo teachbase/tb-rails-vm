@@ -1,0 +1,11 @@
+---
+- name: EC2 ELK
+  hosts: 
+    - aws_elk
+  sudo: yes 
+  remote_user: ubuntu
+  gather_facts: True
+  roles:
+    - { role: common_setup, tags: ['initial'] }
+    - { role: deploy_user, tags: ['user'] }
+    - { role: elk, tags: ['elk'] }

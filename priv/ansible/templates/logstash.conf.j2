@@ -1,0 +1,20 @@
+input {
+  lumberjack {
+    port => {{ elk_logstash.lumberjack_port }}
+    type => "logs"
+    ssl_certificate => "{{ elk_logstash.ssl_crt_dir }}/logstash.crt"
+    ssl_key => "{{ elk_logstash.ssl_key_dir }}/logstash.key"
+    codec => "json"
+  }
+}
+
+output {
+  elasticsearch { 
+    host => "127.0.0.1"
+    port => 9200
+    flush_size => 2000
+    idle_flush_time => 5
+    index => "logstash-%{+YYYY.MM.dd}"
+  }
+  stdout { codec => rubydebug }
+}
