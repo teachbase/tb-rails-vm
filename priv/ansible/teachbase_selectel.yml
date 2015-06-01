@@ -16,3 +16,4 @@
     - { role: texlive, tags: ['latex'] }
     - { role: tb_deps, tags: ['tb_deps'] }
     - { role: tb_prepare, tags: ['tb_prepare'] }
+    - { role: logstash-forwarder, tags: 'logstash'}
