@@ -6,11 +6,43 @@ input {
     ssl_key => "{{ elk_logstash.ssl_key_dir }}/logstash.key"
     codec => "json"
   }
+
+  udp {
+    codec => "json"
+    port => {{ elk_logstash.erlang_udp_port }}
+    type => "erlang"
+  }
 }
 
 filter {
-  geoip {
-    source => "ip"
+  if [type] == "rails" {
+    geoip {
+      source => "ip"
+    }
+  }
+
+  if [type] == "erlang" {
+    grok {
+      match => { "message" =>
+        "%{POSINT:task_id} %{WORD:task_status} %{WORD:task_category} %{WORD:task_type} %{NOTSPACE:file_url} %{POSINT:file_size} %{NOTSPACE:pool_name} %{POSINT:download_time} %{POSINT:process_time} %{POSINT:upload_time}"
+      }
+      add_field => { "source" => "fyler_server" }
+    }
+
+    grok {
+      match => { "message" => "cpu %{NUMBER:cpu_value}"}
+      add_field => { "source" => "fyler_pool" }
+    }
+
+    mutate {
+      convert => { 
+        "file_size" => "integer" 
+        "download_time" => "integer"
+        "process_time" => "integer"
+        "upload_time" => "integer"
+        "cpu_value" => "float"
+      }
+    }
   }
 }
 
