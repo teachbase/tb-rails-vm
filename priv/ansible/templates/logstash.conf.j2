@@ -34,6 +34,11 @@ filter {
       add_field => { "source" => "fyler_pool" }
     }
 
+    grok {
+      match => { "message" => "erlyvideo_network %{WORD:network_eth} %{NUMBER:network_in} %{NUMBER:network_out}"}
+      add_field => { "source" => "erlyvideo" }
+    }
+
     mutate {
       convert => { 
         "file_size" => "integer" 
@@ -41,6 +46,8 @@ filter {
         "process_time" => "integer"
         "upload_time" => "integer"
         "cpu_value" => "float"
+        "network_in" => "integer"
+        "network_out" => "integer"
       }
     }
   }
