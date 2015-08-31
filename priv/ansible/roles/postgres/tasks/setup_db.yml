@@ -10,6 +10,7 @@
     lc_ctype: 'en_US.UTF-8'
     template: 'template0'
     state: present
+    owner: "{{ app_db_user }}"
   with_items: pg_dbs
 
 - name: Install hstore ext
