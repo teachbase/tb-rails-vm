@@ -1,6 +1,9 @@
-production:
+production: &production
   host: {{ erly_meetings.host }}
   auth_token: {{ erly_meetings.auth_token }}
   config_path: {{ erly_meetings.config_path }}
   callback_url: {{ erly_meetings.callback_url }}
   varnish_host: {{ erly_meetings.varnish_host }}
+
+staging:
+  <<: *production

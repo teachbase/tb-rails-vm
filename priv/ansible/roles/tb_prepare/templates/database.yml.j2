@@ -1,4 +1,4 @@
-production:
+production: &production
   adapter: postgresql
   host: {{ app_db_host }}
   database: {{ app_name }}
@@ -6,3 +6,6 @@ production:
   password: {{ app_db_user_pass }} 
   encoding: unicode
   pool: 10
+
+staging:
+  <<: *production

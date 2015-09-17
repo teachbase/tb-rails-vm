@@ -47,4 +47,8 @@ dropbox_api_key: ''
 
 sendgrid: false
 
+netology: false
+
 skylight: false
+
+amoparams: false

@@ -1,4 +1,3 @@
-# Use rbconfig to determine if we're on a windows host or not.
 require 'rbconfig'
 
 host = RbConfig::CONFIG['host_os']
