@@ -3,9 +3,7 @@
 require 'sidekiq'
 require 'yaml'
 
-klass = ARGV[0]
-
-arguments = ARGV[1..-1]
+arguments = ARGV[0..1]
 
 settings = YAML.load_file('./config/secrets.yml')
 
@@ -15,4 +13,4 @@ Sidekiq.configure_client do |config|
   config.redis = { url: "redis://localhost:6379/#{redis_db}" }
 end
 
-Sidekiq::Client.push('class' => klass, 'args' => arguments)
+Sidekiq::Client.push('class' => 'CronWorker', 'args' => arguments)
