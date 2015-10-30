@@ -6,6 +6,6 @@
   remote_user: ubuntu
   gather_facts: True
   roles:
-    - { role: common_setup, tags: ['initial'] }
-    - { role: deploy_user, tags: ['user'] }
-    - { role: elk, tags: ['elk'] }
+    - { role: 'palkan.common_setup', tags: ['common'] }
+    - { role: 'palkan.deploy_user', tags: ['user'] }
+    - { role: 'palkan.elk', tags: ['elk'] }
