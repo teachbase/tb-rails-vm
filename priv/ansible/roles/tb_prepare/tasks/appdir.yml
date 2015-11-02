@@ -6,3 +6,6 @@
 
 - name: Make config dir
   command: mkdir -p {{app_path}}/shared/config
+
+- name: Make bin dir
+  command: mkdir -p {{app_path}}/shared/bin

@@ -1,8 +1,0 @@
-- name: Download latexmk
-  get_url: "url={{ latexmk_src }} dest=/usr/local/bin/latexmk" 
-
-- name: Setup ownership latexmk
-  command: chown {{deploy_user}} /usr/local/bin/latexmk
-
-- name: Update permissions  
-  command: chmod a+x /usr/local/bin/latexmk
