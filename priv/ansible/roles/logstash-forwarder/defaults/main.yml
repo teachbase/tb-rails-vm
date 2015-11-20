@@ -1,9 +1,0 @@
-logstash_forwarder:
-  pkg_url:  "http://s3-eu-west-1.amazonaws.com/tbfiles/pkg/logstash-forwarder_0.4.0_amd64.deb"
-  servers: [] # at least one server name [required]
-  # ssl_crt_file: '' # path to ssl certificate to upload [required]
-  # ssl_key_file: '' # path to ssl private key to upload [required]
-  ssl_crt_dir: "/etc/ssl/certs"
-  ssl_key_dir: "/etc/ssl/private"
-  timeout: 15
-  files: []

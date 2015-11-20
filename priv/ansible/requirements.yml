@@ -1,0 +1,14 @@
+- src: palkan.common_setup
+- src: palkan.deploy_user
+- src: palkan.tmpreaper
+- src: palkan.ruby
+- src: palkan.postgresql
+- src: palkan.redis
+- src: palkan.nodejs
+- src: palkan.nginx
+- src: palkan.phantomjs
+- src: palkan.texlive
+- src: palkan.logstash-forwarder
+- src: palkan.ssl_certs
+- src: redouane.golang
+- src: alekseenkoss77.hivemind

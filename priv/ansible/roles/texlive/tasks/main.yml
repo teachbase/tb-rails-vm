@@ -1,8 +1,0 @@
-- name: Install TexLive
-  action: apt pkg={{item}} state=latest
-  with_items:
-    - texlive
-    - texlive-latex-recommended
-    - texlive-fonts-recommended
-    - texlive-lang-cyrillic
-- include: latexmk.yml tags=latex

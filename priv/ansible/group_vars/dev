@@ -1,4 +1,4 @@
-pg_dbs: 
+postgresql_databases:
   - teachbase_test
   - teachbase_dev
 
