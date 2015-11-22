@@ -1,0 +1,72 @@
+templates:
+  - "templates/postgres.template.yml"
+  - "templates/redis.template.yml"
+  - "templates/web.template.yml"
+  - "templates/sshd.template.yml"
+  - "templates/web.ratelimited.template.yml"
+  - "templates/web.socketed.template.yml"
+  
+expose:
+  - "2222:22" # fwd host port 2222 to container port 22 (ssh)
+
+params:
+  db_default_text_search_config: "pg_catalog.english"
+  #db_shared_buffers: "256MB"
+  #db_work_mem: "40MB"
+
+  ## Which Git revision should this container use? (default: tests-passed)
+  #version: tests-passed
+
+env:
+  LANG: ru_RU.UTF-8
+  DISCOURSE_DEFAULT_LOCALE: ru
+
+  #UNICORN_WORKERS: 3
+
+  DISCOURSE_DEVELOPER_EMAILS: 'me@example.com'
+
+  DISCOURSE_HOSTNAME: '{{ discourse.host }}'
+
+  DISCOURSE_SMTP_ADDRESS: {{ discourse.smtp.address }}
+  #DISCOURSE_SMTP_PORT: {{ discourse.smtp.port }}
+  #DISCOURSE_SMTP_USER_NAME: {{ discourse.smtp.user }}
+  #DISCOURSE_SMTP_PASSWORD: {{ discourse.smtp.pass }}
+  #DISCOURSE_SMTP_ENABLE_START_TLS: true
+
+  ## The CDN address for this Discourse instance (configured to pull)
+  #DISCOURSE_CDN_URL: //discourse-cdn.example.com
+
+## These containers are stateless, all data is stored in /shared
+volumes:
+  - volume:
+      host: {{discourse.root_path}}/shared/standalone
+      guest: /shared
+  - volume:
+      host: {{discourse.root_path}}/shared/standalone/log/var-log
+      guest: /var/log
+
+hooks:
+  after_code:
+    - exec:
+        cd: $home/plugins
+        cmd:
+          - git clone https://github.com/discourse/docker_manager.git
+
+run:
+  - exec: echo "Beginning of custom commands"
+
+  ## If you want to set the 'From' email address for your first registration, uncomment and change:
+  #- exec: rails r "SiteSetting.notification_email='info@unconfigured.discourse.org'"
+  ## After getting the first signup email, re-comment the line. It only needs to run once.
+
+  ## If you want to configure password login for root, uncomment and change:
+  ## Use only one of the following lines:
+  #- exec: /usr/sbin/usermod -p 'PASSWORD_HASH' root
+  #- exec: /usr/sbin/usermod -p "$(mkpasswd -m sha-256 'RAW_PASSWORD')" root
+
+  ## If you want to authorized additional users, uncomment and change:
+  #- exec: ssh-import-id username
+  #- exec: ssh-import-id anotherusername
+
+  - exec: echo "End of custom commands"
+  - exec: awk -F\# '{print $1;}' ~/.ssh/authorized_keys | awk 'BEGIN { print "Authorized SSH keys for this container:"; } NF>=2 {print $NF;}'
