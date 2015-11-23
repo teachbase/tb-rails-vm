@@ -12,3 +12,5 @@
 - src: palkan.ssl_certs
 - src: redouane.golang
 - src: alekseenkoss77.hivemind
+- src: alekseenkoss77.docker
+- src: alekseenkoss77.discourse
