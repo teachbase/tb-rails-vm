@@ -1,8 +1,8 @@
 ---
 - name: TBE production
-  hosts: 
+  hosts:
     - aws_tbe
-  sudo: yes 
+  sudo: yes
   remote_user: root
   gather_facts: True
   roles:
@@ -19,3 +19,4 @@
     - { role: tb_prepare, tags: ['tb_prepare'] }
     - { role: 'palkan.ssl_certs', tags: ['ssl_certs']}
     - { role: 'palkan.logstash-forwarder', tags: ['logstash'] }
+    - { role: 'alekseenkoss77.monit', tags: ['monit'] }
