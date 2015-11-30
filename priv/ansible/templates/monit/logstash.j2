@@ -1,0 +1,7 @@
+check process logstash-forwarder with pidfile /var/run/logstash-forwarder.pid
+  start program = "/etc/init.d/logstash-forwarder start"
+  stop program  = "/etc/init.d/logstash-forwarder stop"
+  if memory usage > 80% for 4 cycles then alert
+  if memory usage > 80% for 4 cycles then restart
+  if cpu usage > 80% for 3 cycles then alert
+  if cpu usage > 80% for 3 cycles then restart
