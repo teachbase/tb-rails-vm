@@ -1,5 +1,6 @@
 check process puma with pidfile /webapps/teachbase/shared/tmp/pids/puma.pid
   start program "/bin/su - deplo -c 'cd /webapps/teachbase/current && ( RACK_ENV=production /usr/bin/env bundle exec puma -C /webapps/teachbase/shared/puma.rb --daemon )'"
   stop program "/bin/su - deplo -c 'cd /webapps/teachbase/current && ( RACK_ENV=production /usr/bin/env bundle exec pumactl -S /webapps/teachbase/shared/tmp/pids/puma.state stop )'"
-  if failed /webapps/teachbase/shared/tmp/sockets/puma.sock then restart
+  if failed unixsocket /webapps/teachbase/shared/tmp/sockets/puma.sock then alert
+  if failed unixsocket /webapps/teachbase/shared/tmp/sockets/puma.sock then restart
   if 5 restarts within 5 cycles then alert
