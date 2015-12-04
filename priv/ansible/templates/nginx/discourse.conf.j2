@@ -1,6 +1,6 @@
 server {
 	listen 80; listen [::]:80;
-	server_name {{discourse.host}};
+	server_name {{discourse.hosts|join(', ')}};
 
 	location / {
 		proxy_pass http://unix:{{discourse.root_path}}/shared/standalone/nginx.http.sock:;

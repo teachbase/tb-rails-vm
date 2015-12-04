@@ -9,8 +9,8 @@ server {
   gzip on;
   listen 80;
 
-  gzip_types text/plain text/html text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;                                                                      
-  server_name {{ app_server_name }};
+  gzip_types text/plain text/html text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;
+  server_name {{ app_hosts|join(', ') }};
   root {{ app_path }}/current/public;
 
   location / {
@@ -50,7 +50,7 @@ server {
     expires 1y;
     log_not_found off;
   }
-  
+
   location ~ ^/(assets|images|javascripts|libs|stylesheets|swfs|system)/ {
     gzip_static on;
     expires     max;
@@ -59,5 +59,5 @@ server {
     add_header  ETag "";
 
     break;
-  }  
+  }
 }
