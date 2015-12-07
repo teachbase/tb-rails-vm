@@ -1,0 +1,21 @@
+# encoding: utf-8
+
+Model.new(:tbe, 'TBE backup model') do
+  compress_with Gzip
+
+  database PostgreSQL do |db|
+    db.name               = "teachbase"
+    db.username           = "teachbase"
+    db.password           = "i90fussj0238hyd"
+    db.host               = "localhost"
+    db.port               = 5432
+  end
+
+  store_with S3 do |s3|
+    s3.access_key_id      = "AKIAIHVFE2Z2T67M4WUA"
+    s3.secret_access_key  = "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"
+    s3.region             = 'eu-west-1'
+    s3.bucket             = 'tbenergourok'
+    s3.path               = 'backups'
+  end
+end

@@ -1,0 +1,7 @@
+check process sidekiq with pidfile /webapps/teachbase/shared/tmp/pids/sidekiq.pid
+  start program "/bin/su - deplo -c 'cd /webapps/teachbase/current && /usr/bin/env bundle exec sidekiq --index 0 --pidfile /webapps/teachbase/shared/tmp/pids/sidekiq.pid --environment production --logfile /webapps/teachbase/shared/log/sidekiq.log --daemon'"
+  stop program "/bin/su - deplo -c 'cd /webapps/teachbase/current && /usr/bin/env bundle exec sidekiqctl stop /webapps/teachbase/shared/tmp/pids/sidekiq.pid 10'"
+  if memory usage > 80% for 4 cycles then alert
+  if memory usage > 80% for 4 cycles then restart
+  if 5 restarts within 5 cycles then alert
+  if 5 restarts within 5 cycles then timeout
