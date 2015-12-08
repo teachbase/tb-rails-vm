@@ -17,3 +17,7 @@ logstash_forwarder:
       fields:
         type: 'rails'
         format: 'json_event'
+
+phantomjs_bin: 'phantomjs-ubuntu'
+phantomjs_archive: 'phantomjs-ubuntu.gz'
+phantomjs_url: 'https://github.com/mirraj2/PhantomjsUbuntu/blob/master/{{ phantomjs_archive }}?raw=true'

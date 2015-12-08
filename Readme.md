@@ -19,10 +19,11 @@ Installs:
 
 ## Setup
 
-* ```vagrant up``` that's all!
+* `ansible-galaxy install -r priv/ansible/requirements.yml`
+* `vagrant up` that's all!
 
 ### Possible issues
 
 * ```The guest additions on this VM do not match the installed version of
 VirtualBox!```
-	Solve with plugin: ```vagrant plugin install vagrant-vbguest```
+	Solve with plugin: `vagrant plugin install vagrant-vbguest`

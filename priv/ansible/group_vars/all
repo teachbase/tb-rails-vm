@@ -4,7 +4,7 @@ app_name: teachbase
 app_path: "{{ app_dir }}/{{ app_name }}"
 app_server_name: _
 app_db_host: localhost
-app_db_user_pass: md53548dd4d99be6cf8a98894d919f84c29
+app_db_user_pass: teachbase
 app_db_user: teachbase
 
 # nginx params
@@ -17,13 +17,15 @@ nginx_apps:
 
 # postgresql
 postgresql_host: localhost
-postgresql_db_user_pass: md53548dd4d99be6cf8a98894d919f84c29
+postgresql_db_user_pass: teachbase
 postgresql_db_user: teachbase
 postgresql_databases: teachbase
 
 honeybadger_api_key: ''
 youtube_api_key: ''
 dropbox_api_key: ''
+google_api_key: ''
+google_search_cx: ''
 
 sendgrid: false
 

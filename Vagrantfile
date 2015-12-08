@@ -4,8 +4,7 @@ host = RbConfig::CONFIG['host_os']
 is_windows = (host =~ /mswin|mingw|cygwin/)
 
 Vagrant.configure("2") do |config|
-  config.vm.box       = "precise64"
-  config.vm.box_url   = "http://files.vagrantup.com/precise64.box"
+  config.vm.box       = "ubuntu/trusty64"
 
   ## OS Tune
 
@@ -24,8 +23,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provider "virtualbox" do |v|
-    v.customize ["modifyvm", :id, "--memory", mem]
-    v.customize ["modifyvm", :id, "--cpus", cpus]
+    v.memory = ENV['MEMORY'] || mem
+    v.cpus = ENV['CPU'] || cpus
   end
 
   ## Provision 
@@ -51,12 +50,12 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.network :forwarded_port, host: 2211, guest: 22 
+  config.vm.network "forwarded_port", host: 2211, guest: 22 
   config.vm.network "forwarded_port", guest: 3000, host: 3001
 
   config.vm.network "private_network", ip: "192.168.50.111"
 
-  config.vm.synced_folder ".", "/vagrant", :disabled => true
+  config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "src/", "/webapps/teachbase", 
     nfs: true,
     create: true,

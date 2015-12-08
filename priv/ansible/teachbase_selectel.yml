@@ -5,15 +5,16 @@
   remote_user: root
   gather_facts: True
   roles:
-    - { role: common_setup, tags: ['initial'] }
-    - { role: deploy_user, tags: ['user'] }
-    - { role: ruby, tags: ['ruby'] }
-    - { role: postgres, tags: ['postgres'] }
-    - { role: redis, tags: ['redis'] }
-    - { role: nodejs, tags: ['nodejs'] }
-    - { role: nginx, tags: ['nginx'] }
-    - { role: tmpreaper, tags: ['tb_deps'] }
-    - { role: texlive, tags: ['latex'] }
+    - { role: 'palkan.common_setup', tags: ['initial'] }
+    - { role: 'palkan.deploy_user', tags: ['user'] }
+    - { role: 'palkan.ruby', tags: ['ruby'] }
+    - { role: 'palkan.postgresql', tags: ['postgres'] }
+    - { role: 'palkan.redis', tags: ['redis'] }
+    - { role: 'palkan.nodejs', tags: ['nodejs'] }
+    - { role: 'palkan.nginx', tags: ['nginx'] }
+    - { role: 'palkan.tmpreaper', tags: ['tb_deps'] }
+    - { role: 'palkan.texlive', tags: ['latex'] }
     - { role: tb_deps, tags: ['tb_deps'] }
     - { role: tb_prepare, tags: ['tb_prepare'] }
-    - { role: logstash-forwarder, tags: 'logstash'}
+    - { role: 'palkan.ssl_certs', tags: ['ssl_certs']}
+    - { role: 'palkan.logstash-forwarder', tags: ['logstash'] }
