@@ -5,7 +5,7 @@ templates:
   - "templates/sshd.template.yml"
   - "templates/web.ratelimited.template.yml"
   - "templates/web.socketed.template.yml"
-  
+
 expose:
   - "2222:22" # fwd host port 2222 to container port 22 (ssh)
 
@@ -23,7 +23,7 @@ env:
 
   #UNICORN_WORKERS: 3
 
-  DISCOURSE_DEVELOPER_EMAILS: 'me@example.com'
+  DISCOURSE_DEVELOPER_EMAILS: 'alekseenkoss@gmail.com'
 
   DISCOURSE_HOSTNAME: '{{ discourse.host }}'
 
