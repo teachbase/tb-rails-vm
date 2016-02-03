@@ -46,6 +46,10 @@ server {
     proxy_pass http://{{ nginx_cors }};
   }
 
+  location /lurker {
+    root {{ app_path }}/current/public;
+  }
+
   location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
     expires 1y;
     log_not_found off;

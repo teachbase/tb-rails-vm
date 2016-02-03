@@ -1,0 +1,7 @@
+check process sidekiq with pidfile {{ app_path }}/shared/tmp/pids/sidekiq.pid
+  start program "/bin/su - {{ deploy_user }} -c 'cd {{ app_path }}/current && /usr/bin/env bundle exec sidekiq --index 0 --pidfile {{ app_path }}/shared/tmp/pids/sidekiq.pid --environment production --logfile {{ app_path }}/shared/log/sidekiq.log --daemon'"
+  stop program "/bin/su - {{ deploy_user }} -c 'cd {{ app_path }}/current && /usr/bin/env bundle exec sidekiqctl stop {{ app_path }}/shared/tmp/pids/sidekiq.pid 10'"
+  if memory usage > 80% for 4 cycles then alert
+  if memory usage > 80% for 4 cycles then restart
+  if 5 restarts within 5 cycles then alert
+  if 5 restarts within 5 cycles then timeout
