@@ -9,7 +9,6 @@
     - { role: 'palkan.postgresql', tags: ['postgres'] }
     - { role: 'palkan.redis', tags: ['redis'] }
     - { role: 'palkan.nodejs', tags: ['nodejs'] }
-    - { role: 'palkan.nginx', tags: ['nginx'] }
     - { role: 'palkan.phantomjs', tags: ['phantomjs'] }
     - { role: 'palkan.texlive', tags: ['latex'] }
     - { role: 'redouane.golang', tags: ['golang'] }
