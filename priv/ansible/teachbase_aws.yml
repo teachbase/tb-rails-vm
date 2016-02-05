@@ -1,7 +1,6 @@
 ---
 - name: EC2 production
   hosts: 
-    - aws_dev
     - aws_production
   sudo: yes 
   remote_user: ubuntu

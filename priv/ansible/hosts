@@ -1,0 +1,12 @@
+[aws_production]
+go.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
+
+[selectel_production]
+s1.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dem_sel
+
+[aws_elk]
+elk.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
+
+[production:children]
+aws_production
+selectel_production

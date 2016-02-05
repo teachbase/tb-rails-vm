@@ -1,6 +1,7 @@
 ---
 - name: Selectel production
-  hosts: selectel_production
+  hosts:
+    - selectel_production
   sudo: yes 
   remote_user: root
   gather_facts: True
