@@ -19,3 +19,4 @@
     - { role: 'palkan.ssl_certs', tags: ['ssl_certs']}
     - { role: 'palkan.logstash-forwarder', tags: ['logstash'] }
     - { role: 'alekseenkoss77.monit', tags: ['monit'] }
+    - { role: 'nickhammond.logrotate', tags: ['logrotate']}
