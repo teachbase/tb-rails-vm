@@ -16,9 +16,11 @@ nginx_apps:
     - { name: "{{ app_name }}", config: "templates/nginx/{{ nginx_conf }}.conf.j2" }
 
 # postgresql
+postgresql_version: 9.3
 postgresql_host: localhost
 postgresql_db_user_pass: teachbase
 postgresql_db_user: teachbase
+postgresql_db_user_flags: SUPERUSER
 postgresql_databases: teachbase
 
 honeybadger_api_key: ''
