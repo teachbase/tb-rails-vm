@@ -2,7 +2,7 @@
 go.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
 
 [selectel_production]
-s1.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dem_sel
+s1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dem_sel'
 
 [aws_elk]
 elk.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
