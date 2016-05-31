@@ -34,7 +34,7 @@ server {
     root {{ app_path }}/current/public;
   }
 
-  location /cors/ {
+  location ~ ^/cors/ {
     rewrite    /cors/(.*) /$1 break;
 
     proxy_redirect off;
