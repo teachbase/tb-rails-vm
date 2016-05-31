@@ -30,6 +30,8 @@ dropbox_api_key: ''
 google_api_key: ''
 google_search_cx: ''
 
+nginx_h2c_proxy: false
+
 sendgrid: false
 
 netology: false

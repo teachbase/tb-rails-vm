@@ -46,6 +46,24 @@ server {
     proxy_pass http://{{ nginx_cors }};
   }
 
+  {% if nginx_h2c_proxy %}
+
+  location /html2cors {
+    valid_referers blocked server_names
+      *.teachbase.ru;
+
+    if ($invalid_referer) {
+      return 403;
+    }
+
+    rewrite    /html2cors(.*) /$1 break;
+    proxy_redirect off; 
+    proxy_http_version     1.1;
+    proxy_pass {{ nginx_h2c_proxy }};
+  } 
+
+  {% endif %}
+
   location /lurker {
     root {{ app_path }}/current/public;
   }
