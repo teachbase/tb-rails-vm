@@ -2,11 +2,11 @@
 go.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
 
 [aws_scaled_production]
-54.229.9.16 ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
-176.34.129.130 ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
+34.253.198.93 ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
+176.34.139.25 ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
 
 [selectel_production]
-s1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dem_sel'
+vs1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dem_sel'
 
 [aws_elk]
 elk.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
