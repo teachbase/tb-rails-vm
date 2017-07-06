@@ -16,3 +16,4 @@
 - src: alekseenkoss77.discourse
 - src: alekseenkoss77.monit
 - src: nickhammond.logrotate
+- src: salex-ansible.influxdb
