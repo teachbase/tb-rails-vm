@@ -4,14 +4,13 @@
   user: vagrant
   become: true
   roles:
-    # - { role: 'palkan.common_setup', tags: ['initial'] }
-    # - { role: 'palkan.ruby', tags: ['ruby'] }
-    # - { role: 'palkan.postgresql', tags: ['postgres'] }
-    # - { role: 'palkan.redis', tags: ['redis'] }
-    # - { role: 'palkan.nodejs', tags: ['nodejs'] }
-    # - { role: 'palkan.phantomjs', tags: ['phantomjs'] }
-    # - { role: 'palkan.texlive', tags: ['latex'] }
-    # - { role: 'redouane.golang', tags: ['golang'] }
-    # - { role: 'alekseenkoss77.hivemind', tags: ['tb_deps'] }
-    # - { role: tb_deps, tags: ['tb_deps'] }
-    - { role: 'salex-ansible.influxdb', tags: ['influx'] }
+    - { role: 'palkan.common_setup', tags: ['initial'] }
+    - { role: 'palkan.ruby', tags: ['ruby'] }
+    - { role: 'palkan.postgresql', tags: ['postgres'] }
+    - { role: 'palkan.redis', tags: ['redis'] }
+    - { role: 'palkan.nodejs', tags: ['nodejs'] }
+    - { role: 'palkan.phantomjs', tags: ['phantomjs'] }
+    - { role: 'palkan.texlive', tags: ['latex'] }
+    #- { role: 'redouane.golang', tags: ['golang'] }
+    - { role: 'alekseenkoss77.hivemind', tags: ['tb_deps'] }
+    - { role: tb_deps, tags: ['tb_deps'] }

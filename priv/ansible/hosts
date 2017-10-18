@@ -1,9 +1,9 @@
 [aws_production]
-go.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
+go.teachbase.ru ansible_ssh_private_key_file=~/.ssh/dev_tb.pem
 
 [aws_scaled_production]
-34.253.198.93 ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
-176.34.139.25 ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
+g1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
+g2.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
 
 [selectel_production]
 vs1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dem_sel'
@@ -11,7 +11,11 @@ vs1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dem_sel'
 [aws_elk]
 elk.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
 
+[aws_nginx]
+ssl.teachbase.ru ansible_ssh_private_key_file=~/.ssh/dev_tb.pem
+
 [production:children]
 aws_production
 selectel_production
 aws_scaled_production
+aws_nginx

@@ -57,6 +57,10 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 5601, host: 5601
   config.vm.network "forwarded_port", guest: 25672, host: 25672
   config.vm.network "forwarded_port", guest: 15672, host: 15672
+  config.vm.network "forwarded_port", guest: 8888, host: 8888
+  config.vm.network "forwarded_port", guest: 8086, host: 8086
+  config.vm.network "forwarded_port", guest: 8083, host: 8083
+  config.vm.network "forwarded_port", guest: 9092, host: 9092
   config.vm.network "private_network", ip: "192.168.50.111"
 
   config.vm.synced_folder ".", "/vagrant", disabled: true

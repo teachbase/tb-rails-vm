@@ -11,3 +11,4 @@ priv/ansible/group_vars/selectel_*
 priv/ansible/host_vars
 priv/ansible/files/*.crt
 priv/ansible/files/*.key
+priv/ansible/files/*.conf

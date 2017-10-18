@@ -7,6 +7,8 @@ app_db_host: localhost
 app_db_user_pass: teachbase
 app_db_user: teachbase
 
+ruby_version: 2.3
+
 # nginx params
 nginx_max_size: 512m
 nginx_read_timeout: 1200
@@ -43,3 +45,6 @@ amoparams: false
 getstream: false
 
 intercom: false
+
+telegraf_config_file_path: files/telegraf.conf
+kapacitor_config_file_path: files/kapacitor.conf
