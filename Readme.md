@@ -24,6 +24,7 @@ Installs:
 
 ### Possible issues
 
-* ```The guest additions on this VM do not match the installed version of
-VirtualBox!```
-	Solve with plugin: `vagrant plugin install vagrant-vbguest`
+```
+The guest additions on this VM do not match the installed version of VirtualBox!
+```
+Solve with plugin: `vagrant plugin install vagrant-vbguest`
