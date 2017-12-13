@@ -1,0 +1,6 @@
+[aws_headhunter]
+teachbase-app-01 ansible_ssh_private_key_file='~/.ssh/tb_hhru' ansible_port=22101 ansible_user=root
+teachbase-app-02 ansible_ssh_private_key_file='~/.ssh/tb_hhru' ansible_port=22102 ansible_user=root
+
+[production:children]
+aws_headhunter

@@ -13,6 +13,7 @@
 - src: redouane.golang
 - src: alekseenkoss77.hivemind
 - src: alekseenkoss77.docker
+- src: alekseenkoss77.filebeat
 - src: alekseenkoss77.discourse
 - src: alekseenkoss77.monit
 - src: nickhammond.logrotate

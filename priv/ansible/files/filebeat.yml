@@ -1,0 +1,32 @@
+filebeat.prospectors:
+  - type: log
+    enabled: true
+    paths:
+      - "/webapps/teachbase/shared/log/logstash_production.log"
+    tags: ["json"]
+    max_bytes: 900000
+    fields:
+      type: "rails"
+      format: "json_event"
+
+logging.level: warning
+logging.to_files: true
+logging.to_syslog: false
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat.log
+  keepfiles: 5
+  permissions: 0644
+
+
+setup.template.enabled: false
+setup.template.name: "filebeat"
+setup.template.overwrite: true
+setup.template.settings:
+  _source.enabled: false
+
+output.elasticsearch:
+  hosts: ["http://search-tblogs6-h3b32mho4tnfdxuljifia6e4am.eu-west-1.es.amazonaws.com:80"]
+  index: filebeat-%{+yyyy.MM.dd}
+  bulk_max_size: 10
+

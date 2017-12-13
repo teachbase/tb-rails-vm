@@ -17,6 +17,10 @@ nginx_cors: cf2.teachbase.ru
 nginx_apps:
     - { name: "{{ app_name }}", config: "templates/nginx/{{ nginx_conf }}.conf.j2" }
 
+from_emails:
+  reg: 'Teachbase <reg@teachbase.ru>'
+  notify: 'Teachbase Notification <notify@teachbase.ru>'
+
 # postgresql
 postgresql_version: 9.3
 postgresql_host: localhost
