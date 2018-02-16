@@ -5,6 +5,7 @@ go.teachbase.ru ansible_ssh_private_key_file=~/.ssh/dev_tb.pem
 g1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
 g2.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
 g3.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
+bg.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
 
 [selectel_production]
 vs1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dem_sel'
@@ -14,6 +15,9 @@ elk.teachbase.ru ansible_ssh_private_key_file=/Users/palkan/.ssh/dev_tb.pem
 
 [aws_nginx]
 ssl.teachbase.ru ansible_ssh_private_key_file=~/.ssh/dev_tb.pem
+
+[ci]
+78.155.217.92 ansible_ssh_private_key_file='~/.ssh/dem_sel'
 
 [production:children]
 aws_production
