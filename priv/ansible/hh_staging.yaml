@@ -1,0 +1,20 @@
+---
+- name: HH test staging
+  hosts: 
+    - headhunter_staging
+  sudo: yes 
+  remote_user: root
+  gather_facts: True
+  roles:
+    - { role: 'palkan.common_setup', tags: ['initial'] }
+    - { role: 'palkan.deploy_user', tags: ['user'] }
+    - { role: 'palkan.ruby', tags: ['ruby'] }
+    - { role: 'palkan.nodejs', tags: ['nodejs'] }
+    - { role: 'palkan.nginx', tags: ['nginx'] }
+    - { role: 'palkan.tmpreaper', tags: ['tb_deps'] }
+    - { role: 'palkan.texlive', tags: ['latex'] }
+    - { role: tb_deps, tags: ['tb_deps'] }
+    - { role: tb_prepare, tags: ['tb_prepare'] }
+    - { role: 'palkan.ssl_certs', tags: ['ssl_certs']}
+    - { role: 'palkan.logstash-forwarder', tags: ['logstash'] }
+    - { role: 'alekseenkoss77.monit', tags: ['monit'] }

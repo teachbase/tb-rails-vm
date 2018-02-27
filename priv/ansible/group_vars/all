@@ -22,7 +22,7 @@ from_emails:
   notify: 'Teachbase Notification <notify@teachbase.ru>'
 
 # postgresql
-postgresql_version: 9.3
+postgresql_version: 9.6
 postgresql_host: localhost
 postgresql_db_user_pass: teachbase
 postgresql_db_user: teachbase
