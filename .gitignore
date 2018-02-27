@@ -12,3 +12,4 @@ priv/ansible/host_vars
 priv/ansible/files/*.crt
 priv/ansible/files/*.key
 priv/ansible/files/*.conf
+priv/ansible/group_vars/headhunter*
