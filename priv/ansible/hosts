@@ -11,6 +11,9 @@ bg.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dev_tb.pem'
 185.195.144.114 ansible_ssh_private_key_file='~/.ssh/dem_sel'
 185.195.144.115 ansible_ssh_private_key_file='~/.ssh/dem_sel'
 185.195.144.116 ansible_ssh_private_key_file='~/.ssh/dem_sel'
+185.195.144.88:2022 ansible_ssh_private_key_file='~/.ssh/dem_sel'
+185.195.144.89:2022 ansible_ssh_private_key_file='~/.ssh/dem_sel'
+185.195.144.92:2022 ansible_ssh_private_key_file='~/.ssh/dem_sel'
 
 [selectel_production]
 vs1.teachbase.ru ansible_ssh_private_key_file='~/.ssh/dem_sel'
