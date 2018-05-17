@@ -1,0 +1,13 @@
+common: &defaults
+  key: {{ scoutapp.key }}
+  monitor: {{ scoutapp.monitor }}
+
+production:
+  <<: *defaults
+  name: {{ scoutapp.production.name }}
+  log_level: {{ scoutapp.production.log_level }}
+
+staging:
+  <<: *defaults
+  name: {{ scoutapp.staging.name }}
+  log_level: {{ scoutapp.staging.log_level }}
