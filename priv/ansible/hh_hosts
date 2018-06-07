@@ -3,7 +3,7 @@ teachbase-app-01 ansible_ssh_private_key_file='~/.ssh/tb_hhru' ansible_port=2210
 teachbase-app-02 ansible_ssh_private_key_file='~/.ssh/tb_hhru' ansible_port=22102 ansible_user=root
 
 [headhunter_staging]
-teachbase.ewd.pw ansible_ssh_private_key_file='~/.ssh/tb_hhru' ansible_port=22105 ansible_user=root
+178.159.249.197:22105 ansible_ssh_private_key_file='~/.ssh/tb_hhru' ansible_user=root
 
 [production:children]
 aws_headhunter
